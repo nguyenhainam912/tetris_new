@@ -94,9 +94,16 @@ namespace Tetris
 
         private void playGame2(object sender, RoutedEventArgs e)
         {
-            //var window2P = new _2Play();
-            //window2P.Show();
-            //Close();
+            var window2P = new _2Play();
+            window2P.Show();
+            Close();
+        }
+
+        private void btnBangxephang_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new Rank();
+            window.Show();
+            Close();
         }
     }
 }

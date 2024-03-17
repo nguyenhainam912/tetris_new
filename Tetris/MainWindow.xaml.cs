@@ -28,6 +28,7 @@ namespace Tetris
             new BitmapImage(new Uri("Assets/TileGreen.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/TilePurple.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/TileRed.png", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets/TilePink.png", UriKind.Relative)),
         };
 
         // danh sách hình 
@@ -41,6 +42,7 @@ namespace Tetris
             new BitmapImage(new Uri("Assets/Block-S.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/Block-T.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/Block-Z.png", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets/TilePink.png", UriKind.Relative)),
         };
 
         private readonly Image[,] imageControls;

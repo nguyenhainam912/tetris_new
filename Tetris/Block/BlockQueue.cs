@@ -13,7 +13,7 @@ namespace Tetris.Block
             new SBlock(),
             new TBlock(),
             new ZBlock(),
-            //new FBlock(),
+            new FBlock(),
         };
 
         private readonly Random random = new Random();
