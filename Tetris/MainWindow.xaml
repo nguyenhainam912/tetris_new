@@ -40,6 +40,8 @@
             />
         </Viewbox>
 
+        <Label x:Name="lblDetail" Grid.Column="2" Content="Label" HorizontalAlignment="Left" Margin="100,-8,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Yu Gothic Light" FontWeight="Bold" FontStyle="Italic"/>
+
         <TextBlock x:Name="ScoreText"
             Grid.Row="0"
             Grid.Column="1"
@@ -88,11 +90,16 @@
                     TextAlignment="Center"
                     FontSize="36"
                     />
-                <Button Content="Play Again"
+                <Button x:Name="btn1" Content="Play Again"
                  Background="White"
                  Margin="0,20,0,0"
                  Padding="5"
                  Click="PlayAgain_Click"></Button>
+                <Button Content="Save Score"
+                     Background="White"
+                     Margin="0,20,0,0"
+                     Padding="5"
+                     Click="SaveScore"></Button>      
             </StackPanel>
         </Grid>
         <Grid x:Name="back" HorizontalAlignment="Left" Height="29" Margin="20,0,0,0" VerticalAlignment="Center" Width="35" MouseDown="backToMain" MouseEnter="changeOpaMouseMove" MouseLeave="changeOpaMouseMove">
@@ -100,5 +107,6 @@
                 <ImageBrush ImageSource="Assets/3325360.png" />
             </Grid.Background>
         </Grid>
+        
     </Grid>
 </Window>

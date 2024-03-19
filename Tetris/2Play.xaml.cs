@@ -31,6 +31,8 @@ namespace Tetris
             new BitmapImage(new Uri("Assets/TileGreen.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/TilePurple.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/TileRed.png", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets/TilePink.png", UriKind.Relative)),
+
         };
 
         // danh sách hình 
@@ -44,6 +46,8 @@ namespace Tetris
             new BitmapImage(new Uri("Assets/Block-S.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/Block-T.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/Block-Z.png", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets/TilePink.png", UriKind.Relative)),
+
         };
 
         private readonly Image[,] imageControls;
@@ -51,6 +55,10 @@ namespace Tetris
         private readonly int maxDelay = 300;
         private readonly int minDelay = 75;
         private readonly int delayDecrease = 20;
+
+
+        private int loose1 = 0;
+        private int loose2 = 0;
 
         public int row;
         public int col;
@@ -172,6 +180,18 @@ namespace Tetris
             }
         }
 
+        private void DrawNextBlock(Block.BlockQueue blockQueue, int _p)
+        {
+            if (_p == 1) {
+                Block.Block next = blockQueue.NextBlock;
+                NextImage.Source = blockImages[next.Id];
+            } else
+            {
+                Block.Block next = blockQueue.NextBlock;
+                NextImage2.Source = blockImages[next.Id];
+            }
+        }
+
         private void Draw(GameState gameState, int _p)
         {
             if (_p == 1)
@@ -179,6 +199,7 @@ namespace Tetris
                 DrawGrid(gameState.GameGrid, 1);
                 DrawGhost(gameState.CurrentBlock, 1);
                 DrawBlock(gameState.CurrentBlock, 1);
+                DrawNextBlock(gameState.BlockQueue,1);
                 ScoreText.Text = $"Score P1: {gameState.Score}";
             }
             else
@@ -186,6 +207,7 @@ namespace Tetris
                 DrawGrid(gameState.GameGrid, 2);
                 DrawGhost(gameState.CurrentBlock, 2);
                 DrawBlock(gameState.CurrentBlock, 2);
+                DrawNextBlock(gameState.BlockQueue,2);
                 ScoreText2.Text = $"Score P2: {gameState.Score}";
             }
 
@@ -195,6 +217,7 @@ namespace Tetris
         {
             Draw(gameState, 1);
             Draw(gameState2, 2);
+
             while (!gameState.GameOver || !gameState2.GameOver)
             {
                 int delay = Math.Max(minDelay, maxDelay - (gameState.Score * delayDecrease));
@@ -206,7 +229,11 @@ namespace Tetris
 
             }
 
-            if (gameState.GameOver && gameState2.Score > gameState.Score)
+            if (gameState.GameOver) loose1 += 1;
+            if (gameState2.GameOver) loose2 += 1;
+
+
+            if (gameState.GameOver && gameState2.Score > gameState.Score && loose2> loose1)
             {
                 FinalScoreText.Text = $"Score : {gameState2.Score}";
                 txtPWin.Text = "P2 Winner";
@@ -299,6 +326,8 @@ namespace Tetris
             gameState = new GameState(22, 10);
             gameState2 = new GameState(22, 10);
             GameOverMenu.Visibility = Visibility.Hidden;
+             loose1 = 0;
+               loose2 = 0;
             await GameLoop();
         }
 

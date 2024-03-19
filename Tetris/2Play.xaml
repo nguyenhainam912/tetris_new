@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tetris"
         mc:Ignorable="d"
-        Title="Tetris2P" Height="600" Width="800"
+        Title="Tetris2P" Height="600" Width="1000"
         MinWidth="600" MinHeight="600"
         Foreground="White"
         FontFamily="Segoe UI Light" FontSize="28"
@@ -58,6 +58,30 @@
              ClipToBounds="True" 
             />
         </Viewbox>
+
+        <StackPanel Grid.Row="1"
+      Grid.Column="0"
+     VerticalAlignment="Center"
+     HorizontalAlignment="Center"
+     >
+            <TextBlock Text="Next P1" TextAlignment="Center"/>
+
+            <Image x:Name="NextImage"
+    Margin="20"
+    Width="125"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"
+              Grid.Column="5"
+             VerticalAlignment="Center"
+             HorizontalAlignment="Center"
+             >
+                    <TextBlock Text="Next P2" TextAlignment="Center"/>
+
+                <Image x:Name="NextImage2"
+            Margin="20"
+            Width="125"/>   
+        </StackPanel>
 
         <TextBlock x:Name="ScoreText"
             Grid.Row="0"

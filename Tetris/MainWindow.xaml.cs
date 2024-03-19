@@ -63,6 +63,8 @@ namespace Tetris
             minDelay = (int)min;
             gameState = new GameState(_row, _col);
             GameCanvas.Width = _w;
+            lblDetail.Content = String.Format("Size:{0}x{1} \n Speed:x{2}", _row, _col, "1");
+            if(min < 75) lblDetail.Content = String.Format("Size:{0}x{1} \n Speed:x{2}", _row, _col, "2");
             imageControls = SetupGameCanvas(gameState.GameGrid);
         }
 
@@ -237,6 +239,19 @@ namespace Tetris
             {
                 back.Opacity = 0.6;
             }
+        }
+
+        private void SaveScore(object sender, RoutedEventArgs e)
+        {
+            SaveScore save = new SaveScore(gameState.Score);
+            bool isClose = (bool)save.ShowDialog();
+            if(!isClose && save.isSave)
+            {
+                PlayAgain_Click(sender, e);
+            }
+
+
+
         }
     }
 }
