@@ -76,11 +76,11 @@
              VerticalAlignment="Center"
              HorizontalAlignment="Center"
              >
-                    <TextBlock Text="Next P2" TextAlignment="Center"/>
+            <TextBlock Text="Next P2" TextAlignment="Center"/>
 
-                <Image x:Name="NextImage2"
+            <Image x:Name="NextImage2"
             Margin="20"
-            Width="125"/>   
+            Width="125"/>
         </StackPanel>
 
         <TextBlock x:Name="ScoreText"

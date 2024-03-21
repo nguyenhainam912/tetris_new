@@ -121,42 +121,64 @@ namespace Tetris
         // vẽ ô vuông 
         private void DrawBlock(Block.Block block)
         {
-            foreach (Position p in block.TilePosition())
+            try
             {
-                imageControls[p.Row, p.Column].Opacity = 1;
-                imageControls[p.Row, p.Column].Source = tileImages[block.Id];
-            }
+                foreach (Position p in block.TilePosition())
+                {
+                    imageControls[p.Row, p.Column].Opacity = 1;
+                    imageControls[p.Row, p.Column].Source = tileImages[block.Id];
+                }
+            } catch(Exception e)
+                {
+                    Console.WriteLine(e);
+                }
         }
 
         // vẽ ô sẽ xuất hiện kế tiếp
         private void DrawNextBlock(Block.BlockQueue blockQueue)
         {
-            Block.Block next = blockQueue.NextBlock;
-            NextImage.Source = blockImages[next.Id];
+            try { 
+                Block.Block next = blockQueue.NextBlock;
+                NextImage.Source = blockImages[next.Id];
+            } catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
 
         }
 
         // vẽ ô đang đc giữ lại 
         private void DrawHeldBlock(Block.Block heldBlock)
         {
-            if (heldBlock == null)
+            try { 
+                if (heldBlock == null)
+                {
+                    HoldImage.Source = blockImages[0];
+                }
+                else
+                {
+                    HoldImage.Source = blockImages[heldBlock.Id];
+                }
+            } catch(Exception e)
             {
-                HoldImage.Source = blockImages[0];
-            }
-            else
-            {
-                HoldImage.Source = blockImages[heldBlock.Id];
+                Console.WriteLine(e);
             }
         }
 
         // vẽ ảnh sẽ rơi xuống ở vị trí nào
         private void DrawGhost(Block.Block block)
         {
-            int dropDistance = gameState.BlockDropDisance();
-            foreach (Position p in block.TilePosition())
+            try
             {
-                imageControls[p.Row + dropDistance, p.Column].Opacity = 0.25;
-                imageControls[p.Row + dropDistance, p.Column].Source = tileImages[block.Id];
+                int dropDistance = gameState.BlockDropDisance();
+                foreach (Position p in block.TilePosition())
+                {
+                    imageControls[p.Row + dropDistance, p.Column].Opacity = 0.25;
+                    imageControls[p.Row + dropDistance, p.Column].Source = tileImages[block.Id];
+                }
+            } catch(Exception e)
+            {
+                Console.WriteLine(e);
             }
         }
 

@@ -32,7 +32,8 @@ namespace Tetris
             new BitmapImage(new Uri("Assets/TilePurple.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/TileRed.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/TilePink.png", UriKind.Relative)),
-
+            new BitmapImage(new Uri("Assets/TileGray.png", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets/TileLightPinky.png", UriKind.Relative)),
         };
 
         // danh sách hình 
@@ -47,7 +48,8 @@ namespace Tetris
             new BitmapImage(new Uri("Assets/Block-T.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/Block-Z.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/TilePink.png", UriKind.Relative)),
-
+            new BitmapImage(new Uri("Assets/TileGray.png", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets/TileLightPinky.png", UriKind.Relative)),
         };
 
         private readonly Image[,] imageControls;
@@ -156,27 +158,33 @@ namespace Tetris
         // vẽ ảnh sẽ rơi xuống ở vị trí nào
         private void DrawGhost(Block.Block block, int _p)
         {
-            int dropDistance = gameState.BlockDropDisance();
-            if (_p == 1)
+            try
             {
-                dropDistance = gameState.BlockDropDisance();
-            }
-            else
-            {
-                dropDistance = gameState2.BlockDropDisance();
-            }
-            foreach (Position p in block.TilePosition())
-            {
+                int dropDistance = gameState.BlockDropDisance();
                 if (_p == 1)
                 {
-                    imageControls[p.Row + dropDistance, p.Column].Opacity = 0.25;
-                    imageControls[p.Row + dropDistance, p.Column].Source = tileImages[block.Id];
+                    dropDistance = gameState.BlockDropDisance();
                 }
                 else
                 {
-                    imageControls2[p.Row + dropDistance, p.Column].Opacity = 0.25;
-                    imageControls2[p.Row + dropDistance, p.Column].Source = tileImages[block.Id];
+                    dropDistance = gameState2.BlockDropDisance();
                 }
+                foreach (Position p in block.TilePosition())
+                {
+                    if (_p == 1)
+                    {
+                        imageControls[p.Row + dropDistance, p.Column].Opacity = 0.25;
+                        imageControls[p.Row + dropDistance, p.Column].Source = tileImages[block.Id];
+                    }
+                    else
+                    {
+                        imageControls2[p.Row + dropDistance, p.Column].Opacity = 0.25;
+                        imageControls2[p.Row + dropDistance, p.Column].Source = tileImages[block.Id];
+                    }
+                }
+            }catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
 

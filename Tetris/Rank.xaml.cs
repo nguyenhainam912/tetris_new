@@ -114,7 +114,9 @@ namespace Tetris
 
         public static void InsertData(string name, int diem)
         {
-            string connectionString = "Data Source=DESKTOP-BN2K0OH\\SQLEXPRESS;" +
+            try
+            {
+                string connectionString = "Data Source=DESKTOP-BN2K0OH\\SQLEXPRESS;" +
                                       "Initial Catalog=tetris;" +
                                       "Integrated Security=SSPI;";
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -129,6 +131,12 @@ namespace Tetris
                     command.Parameters.AddWithValue("@diem", diem);
                     command.ExecuteNonQuery();
                 }
+            }
+            }
+            catch (SqlException ex)
+            {
+                // Handle connection errors
+                Console.WriteLine(ex);
             }
         }
 
