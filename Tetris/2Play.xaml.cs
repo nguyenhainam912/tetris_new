@@ -47,9 +47,9 @@ namespace Tetris
             new BitmapImage(new Uri("Assets/Block-S.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/Block-T.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/Block-Z.png", UriKind.Relative)),
-            new BitmapImage(new Uri("Assets/TilePink.png", UriKind.Relative)),
-            new BitmapImage(new Uri("Assets/TileGray.png", UriKind.Relative)),
-            new BitmapImage(new Uri("Assets/TileLightPinky.png", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets/Block_Secret.png", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets/Block_Secret.png", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets/Block_Secret.png", UriKind.Relative)),
         };
 
         private readonly Image[,] imageControls;

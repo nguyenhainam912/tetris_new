@@ -18,8 +18,10 @@
     <None Remove="Assets\Block-L.png" />
     <None Remove="Assets\Block-O.png" />
     <None Remove="Assets\Block-S.png" />
+   
     <None Remove="Assets\Block-T.png" />
     <None Remove="Assets\Block-Z.png" />
+    <None Remove="Assets\Block_Secret.png" />
     <None Remove="Assets\Icon.ico" />
     <None Remove="Assets\maxresdefault.jpg" />
     <None Remove="Assets\rank.png" />
@@ -65,6 +67,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Block-Z.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Block_Secret.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Icon.ico" />
