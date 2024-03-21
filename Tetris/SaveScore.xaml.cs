@@ -30,8 +30,15 @@ namespace Tetris
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            isSave = true;
-            Rank.InsertData(txt1.Text, score);
+            if (string.IsNullOrEmpty(txt1.Text))
+            {
+                MessageBox.Show("Bạn chưa nhập tên !!!", "Thông báo");
+            }else
+            {
+                isSave = true;
+                Rank.InsertData(txt1.Text, score);
+                this.Close();
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

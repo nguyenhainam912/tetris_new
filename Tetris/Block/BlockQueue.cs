@@ -14,6 +14,8 @@ namespace Tetris.Block
             new TBlock(),
             new ZBlock(),
             new FBlock(),
+            new UBlock(),
+            new YBlock(),
         };
 
         private readonly Random random = new Random();

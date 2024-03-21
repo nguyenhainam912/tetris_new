@@ -29,6 +29,10 @@ namespace Tetris
             new BitmapImage(new Uri("Assets/TilePurple.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/TileRed.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/TilePink.png", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets/TileGray.png", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets/TileLightPinky.png", UriKind.Relative)),
+
+
         };
 
         // danh sách hình 
@@ -43,6 +47,8 @@ namespace Tetris
             new BitmapImage(new Uri("Assets/Block-T.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/Block-Z.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/TilePink.png", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets/TileGray.png", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets/TileLightPinky.png", UriKind.Relative)),
         };
 
         private readonly Image[,] imageControls;
@@ -244,8 +250,8 @@ namespace Tetris
         private void SaveScore(object sender, RoutedEventArgs e)
         {
             SaveScore save = new SaveScore(gameState.Score);
-            bool isClose = (bool)save.ShowDialog();
-            if(!isClose && save.isSave)
+            save.ShowDialog();
+            if(save.isSave)
             {
                 PlayAgain_Click(sender, e);
             }

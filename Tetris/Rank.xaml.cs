@@ -61,15 +61,23 @@ namespace Tetris
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             int i= 1;
-
-            foreach (Score s in scoreList)
+            if(scoreList == null || scoreList.Count == 0)
             {
-                if (i == 1) lbl1.Content = String.Format("{0} ({1})", s.Ten, s.Diem);
-                if (i == 2) lbl2.Content = String.Format("{0} ({1})", s.Ten, s.Diem);
-                if (i == 3) lbl3.Content = String.Format("{0} ({1})", s.Ten, s.Diem);
+                lbl1.Content = String.Format("{0} ({1})", "Ngoc", 20);
+                lbl2.Content = String.Format("{0} ({1})", "Chuong", 18);
+                lbl3.Content = String.Format("{0} ({1})", "Nam", 16);
+            } else
+            {
+                foreach (Score s in scoreList)
+                {
+                    if (i == 1) lbl1.Content = String.Format("{0} ({1})", s.Ten, s.Diem);
+                    if (i == 2) lbl2.Content = String.Format("{0} ({1})", s.Ten, s.Diem);
+                    if (i == 3) lbl3.Content = String.Format("{0} ({1})", s.Ten, s.Diem);
 
-                i++;
+                    i++;
+                }
             }
+
         }
 
         private void ConnectDb()

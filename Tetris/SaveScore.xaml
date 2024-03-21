@@ -20,8 +20,8 @@
     <Grid Background="White">
         <Label Content="Nhập Tên" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top" Height="38" Width="70" FontSize="14" Foreground="#FF121212"/>
         <TextBox x:Name="txt1" HorizontalAlignment="Left" Margin="80,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="30" FontSize="20"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="170,94,0,0" VerticalAlignment="Top" Width="60" Height="24" FontSize="14" Background="#FF1779C5" Foreground="White" Click="Button_Click" IsCancel="True"/>
-        <Button Content="Cancel" HorizontalAlignment="Left" Margin="95,94,0,0" VerticalAlignment="Top" Width="60" Height="24" FontSize="14" Background="#FF1779C5" Foreground="White" Click="Button_Click_1"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="170,94,0,0" VerticalAlignment="Top" Width="60" Height="24" FontSize="14" Background="#FF1779C5" Foreground="White" Click="Button_Click"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="95,94,0,0" VerticalAlignment="Top" Width="60" Height="24" FontSize="14" Background="#FF1779C5" Foreground="White" Click="Button_Click_1" IsCancel="True"/>
 
     </Grid>
 </Window>

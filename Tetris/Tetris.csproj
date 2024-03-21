@@ -26,7 +26,9 @@
     <None Remove="Assets\TileBlue.png" />
     <None Remove="Assets\TileCyan.png" />
     <None Remove="Assets\TileEmpty.png" />
+    <None Remove="Assets\TileGray.png" />
     <None Remove="Assets\TileGreen.png" />
+    <None Remove="Assets\TileLightPinky.png" />
     <None Remove="Assets\TileOrange.png" />
     <None Remove="Assets\TilePink.png" />
     <None Remove="Assets\TilePurple.png" />
@@ -81,7 +83,13 @@
     <Content Include="Assets\TileEmpty.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\TileGray.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\TileGreen.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\TileLightPinky.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\TileOrange.png">
