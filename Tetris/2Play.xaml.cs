@@ -118,7 +118,9 @@ namespace Tetris
         // thêm hình ảnh các ô vào giao diện
         private void DrawGrid(GameGrid grid, int _p)
         {
-            for (int r = 0; r < grid.Rows; r++)
+            try
+            {
+                for (int r = 0; r < grid.Rows; r++)
             {
                 for (int c = 0; c < grid.Columns; c++)
                 {
@@ -135,23 +137,35 @@ namespace Tetris
                     }
                 }
             }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         // vẽ ô vuông 
         private void DrawBlock(Block.Block block, int _p)
         {
-            foreach (Position p in block.TilePosition())
+            try
             {
-                if (_p == 1)
+                foreach (Position p in block.TilePosition())
                 {
-                    imageControls[p.Row, p.Column].Opacity = 1;
-                    imageControls[p.Row, p.Column].Source = tileImages[block.Id];
+                    if (_p == 1)
+                    {
+                        imageControls[p.Row, p.Column].Opacity = 1;
+                        imageControls[p.Row, p.Column].Source = tileImages[block.Id];
+                    }
+                    else
+                    {
+                        imageControls2[p.Row, p.Column].Opacity = 1;
+                        imageControls2[p.Row, p.Column].Source = tileImages[block.Id];
+                    }
                 }
-                else
-                {
-                    imageControls2[p.Row, p.Column].Opacity = 1;
-                    imageControls2[p.Row, p.Column].Source = tileImages[block.Id];
-                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
         }
 
@@ -190,7 +204,9 @@ namespace Tetris
 
         private void DrawNextBlock(Block.BlockQueue blockQueue, int _p)
         {
-            if (_p == 1) {
+            try
+            {
+                if (_p == 1) {
                 Block.Block next = blockQueue.NextBlock;
                 NextImage.Source = blockImages[next.Id];
             } else
@@ -198,7 +214,11 @@ namespace Tetris
                 Block.Block next = blockQueue.NextBlock;
                 NextImage2.Source = blockImages[next.Id];
             }
-        }
+        }catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+}
 
         private void Draw(GameState gameState, int _p)
         {
